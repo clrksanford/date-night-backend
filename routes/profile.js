@@ -22,7 +22,7 @@ router.get('/:userId', function(req, res, next) {
 
 /* POST new night */
 router.post('/', function(req, res, next) {
-  req.body = _.pick(req.body, ['username', 'date', 'movieInfo', 'recipeInfo', 'profilePicture', 'userId']);
+  req.body = _.pick(req.body, ['username', 'date', 'moviePicture', 'recipePicture', 'profilePicture', 'userId']);
   var night = new Night(req.body);
 
   night.save(night, function (err) {
