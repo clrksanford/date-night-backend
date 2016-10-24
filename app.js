@@ -14,8 +14,8 @@ var jwt = require('express-jwt');
 mongoose.connect(process.env.DB_CONN);
 
 var jwtCheck = jwt({
-  secret: new Buffer(process.env.AUTH0_CLIENT_SECRET, 'base64'),
-  audience: process.env.AUTH0_CLIENT_ID
+  secret: new Buffer(process.env.YOUR_CLIENT_SECRET, 'base64'),
+  audience: process.env.YOUR_CLIENT_ID
 });
 
 var profile = require('./routes/profile');
