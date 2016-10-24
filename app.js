@@ -31,7 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
-app.use('/profile', profile);
+
 app.use('/profile', jwtCheck, profile);
 
 
