@@ -3,8 +3,8 @@ var mongoose = require('mongoose');
 var nightSchema = mongoose.Schema ({
   username: String,
   date: String,
-  movieInfo: String,
-  recipeInfo: String,
+  moviePicture: String,
+  recipePicture: String,
   profilePicture: String,
   userId: String
 });
