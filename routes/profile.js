@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
 var Night = require('../models/night');
 var _ = require('lodash');
 
@@ -24,13 +25,13 @@ router.post('/', function(req, res, next) {
   req.body = _.pick(req.body, ['username', 'date', 'movieInfo', 'recipeInfo', 'profilePicture', 'userId']);
   var night = new Night(req.body);
 
-  Night.save(night, function (err) {
+  night.save(night, function (err) {
     if (err) {
       res.status(500).send();
     } else {
       res.status(204).send();
     }
-  })
+  });
 });
 
 module.exports = router;
