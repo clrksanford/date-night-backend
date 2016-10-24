@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var cors = require('cors');
 var axios = require('axios');
-var jwt = require('express-jwt');
+var jwt = require('express-jwt-auth');
 
 mongoose.connect(process.env.DB_CONN);
 
