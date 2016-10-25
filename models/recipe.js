@@ -2,9 +2,10 @@ var mongoose = require('mongoose');
 
 var recipeSchema = mongoose.Schema ({
   title: String,
-  ingredients: Array,
+  categories: Array,
   description: String,
-  recipePicture: String
+  recipePicture: String,
+  recipeURL: String
 });
 
 var Recipe = mongoose.model('Recipe', recipeSchema);
