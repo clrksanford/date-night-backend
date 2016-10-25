@@ -19,6 +19,24 @@ router.get('/:userId', function(req, res, next) {
   });
 });
 
+/* DELETE night. */
+router.delete('/:Id', function (req, res, next) {
+ Night.findById(req.params.Id, function (err, night) {
+   if(err) {
+     res.status(500).send();
+   } else if (!night) {
+     res.status(404).send();
+   } else {
+     night.remove(function (err) {
+       if (err) {
+         res.status(500).send()
+       } else {
+         res.status(204).send()
+       }
+     });
+   }
+ });
+});
 
 /* POST new night */
 router.post('/', function(req, res, next) {
