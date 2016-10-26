@@ -67,13 +67,13 @@ function scrape(pageLink) {
 
       // console.log(recipe);
 
-      recipe.save(function (err) {
-        if(err) {
-          console.log(err);
-        } else {
-          console.log('Success!');
-        }
-      });
+      // recipe.save(function (err) {
+      //   if(err) {
+      //     console.log(err);
+      //   } else {
+      //     console.log('Success!');
+      //   }
+      // });
       // console.log(title);
       // console.log(description);
       // console.log(recipePicture);
