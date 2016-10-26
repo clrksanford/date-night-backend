@@ -40,7 +40,7 @@ router.delete('/:Id', function (req, res, next) {
 
 /* POST new night */
 router.post('/', function(req, res, next) {
-  req.body = _.pick(req.body, ['username', 'date', 'moviePicture', 'recipePicture', 'profilePicture', 'userId','nightName','nightDescription']);
+  req.body = _.pick(req.body, ['username', 'date', 'moviePicture', 'recipePicture', 'profilePicture', 'userId','nightName','nightDescription','recipeURL']);
   var night = new Night(req.body);
 
   night.save(night, function (err) {

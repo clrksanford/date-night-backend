@@ -5,6 +5,7 @@ var nightSchema = mongoose.Schema ({
   date: String,
   moviePicture: String,
   recipePicture: String,
+  recipeURL: String,
   profilePicture: String,
   userId: String,
   nightName: String,
