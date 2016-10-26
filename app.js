@@ -19,6 +19,7 @@ var jwtCheck = jwt({
 });
 
 var profile = require('./routes/profile');
+var recipes = require('./routes/recipes');
 
 var app = express();
 
@@ -33,7 +34,7 @@ app.use(cors());
 
 
 app.use('/profile', jwtCheck, profile);
-
+app.use('/recipes', recipes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
