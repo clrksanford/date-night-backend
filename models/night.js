@@ -6,7 +6,9 @@ var nightSchema = mongoose.Schema ({
   moviePicture: String,
   recipePicture: String,
   profilePicture: String,
-  userId: String
+  userId: String,
+  nightName: String,
+  nightDescription: String
 });
 
 var Night = mongoose.model('Night', nightSchema);
