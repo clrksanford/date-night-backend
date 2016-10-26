@@ -1,10 +1,10 @@
-// require('dotenv').config({silent: true});
+require('dotenv').config({silent: true});
 var cheerio = require('cheerio');
 var axios = require('axios');
-// var mongoose = require('mongoose');
-// mongoose.connect(process.env.DB_CONN);
-//
-// var Recipe = require('./models/recipe');
+var mongoose = require('mongoose');
+mongoose.connect(process.env.DB_CONN);
+
+var Recipe = require('./models/recipe');
 
 // Use site navigation to sweep through and scrape
 
@@ -57,13 +57,23 @@ function scrape(pageLink) {
         return item.split('rel="category tag">')[1].split('</a>')[0];
       });
 
-      if(!title) {
-        console.log(false);
-      } else {
-        console.log(true);
-      }
+      var recipe = new Recipe({
+        title: title,
+        description: description,
+        recipePicture: recipePicture,
+        categories: categories,
+        recipeURL: pageLink
+      });
 
+      // console.log(recipe);
 
+      recipe.save(function (err) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log('Success!');
+        }
+      });
       // console.log(title);
       // console.log(description);
       // console.log(recipePicture);
