@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 
-app.use('/profile', jwtCheck, profile);
+app.use('/profile', profile);
 app.use('/recipes', recipes);
 
 // catch 404 and forward to error handler

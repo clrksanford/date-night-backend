@@ -52,4 +52,25 @@ router.post('/', function(req, res, next) {
   });
 });
 
+/* PUT edit the selected night */
+router.put('/:Id', function (req, res, next) {
+  req.body = _.pick(req.body, ['nightName', 'nightDescription']);
+  Night.findById(req.params.Id, function (err, night) {
+    if(err) {
+      res.status(500).send();
+    } else if (!night) {
+      res.status(404).send();
+    } else {
+      var updatedNight = Object.assign(night, req.body);
+      updatedNight.save(function (err) {
+        if (err) {
+          res.status(500).send();
+        } else {
+          res.json(updatedNight);
+        }
+      });
+    }
+  });
+});
+
 module.exports = router;
